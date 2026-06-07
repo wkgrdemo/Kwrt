@@ -19,8 +19,6 @@ mv -f target/linux/amlogic/meson8b/config-6.6 target/linux/amlogic/meson8b/confi
 
 sed -i "s/KERNEL_PATCHVER:=6.6/KERNEL_PATCHVER:=6.12/" target/linux/amlogic/Makefile
 
-sed -i "s/wpad-openssl/wpad-basic-mbedtls/" target/linux/amlogic/image/Makefile
-
 rm -rf package/feeds/kiddin9/*_QMI_WWAN
 
 
