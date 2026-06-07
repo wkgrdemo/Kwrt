@@ -57,7 +57,7 @@ jobs:
         if [[ $(expr $gitdate + 120) < $now ]]; then
         curl -X POST https://api.github.com/repos/kiddin9/op-packages/dispatches \
         -H "Accept: application/vnd.github.everest-preview+json" \
-        -H "Authorization: token ${{ secrets.TOKEN_KIDDIN9 }}" \
+        -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
         --data '{"event_type": "update"}'
         fi
 
