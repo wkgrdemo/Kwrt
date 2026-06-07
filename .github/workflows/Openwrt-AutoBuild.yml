@@ -10,6 +10,18 @@ name: Build OpenWrt
 
 on: 
   repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Target device (e.g. qualcommax_ipq60xx)'
+        required: true
+        default: 'qualcommax_ipq60xx'
+      param:
+        description: 'Parameter'
+        required: false
+        default: ''
+
+
 
 env:
   REPO_TOKEN: ${{ secrets.TOKEN_KIDDIN9 }}
@@ -31,7 +43,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["${{ github.event.client_payload.target }}"]
+        target: ["${{ github.event.client_payload.target || github.event.inputs.target }}"]
         
     steps:
     - name: Checkout
